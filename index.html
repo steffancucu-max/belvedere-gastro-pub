@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belvedere Gastro Pub & Pensiune | Târgu Neamț</title>
+<meta name="description" content="Belvedere Gastro Pub & Pensiune, Str. Mărășești 215, Târgu Neamț. Bucate gătite cu grijă din ingrediente proaspete, terasă, cazare, piscină. Rezervări: 0747 295 151.">
+<!-- Fonts from Bunny Fonts (EU, no cookies, no IP logging) instead of Google Fonts, for GDPR -->
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=oswald:400,500,600|inter:400,500,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141414; --ink-2:#222; --paper:#faf8f5; --paper-2:#f1ede6;
+    --muted:#6b6660; --line:#e2ddd5;
+    --accent:#e53395; --accent-dark:#c2207b;
+    --radius:14px; --max:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3,.brand{font-family:Oswald,Impact,sans-serif;letter-spacing:.04em;text-transform:uppercase;line-height:1.15}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  section{padding:96px 0}
+  .eyebrow{display:inline-block;color:var(--accent);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:18px}
+  .lead{color:var(--muted);max-width:640px;font-size:1.08rem}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;text-decoration:none;cursor:pointer;border:2px solid transparent;transition:.2s;font-size:1rem;font-family:Inter,sans-serif}
+  .btn-accent{background:var(--accent);color:#fff}
+  .btn-accent:hover{background:var(--accent-dark)}
+  .btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000}
+
+  /* nav */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.25s}
+  header.scrolled{background:rgba(20,20,20,.94);backdrop-filter:blur(8px)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{color:#fff;text-decoration:none;font-size:1.45rem;font-weight:600;line-height:1}
+  .brand small{display:block;font-size:.62rem;letter-spacing:.32em;font-weight:400;opacity:.85;margin-top:3px}
+  .links{display:flex;gap:28px;align-items:center}
+  .links a{color:#fff;text-decoration:none;font-size:.93rem;font-weight:500;opacity:.9}
+  .links a:hover{opacity:1;color:var(--accent)}
+  .links .btn{padding:10px 20px;opacity:1}
+  .links .btn:hover{color:#fff}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;color:#fff;position:relative;
+    background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7)),
+      url("https://www.pensiuneabelvedere.ro/img/background-desktop.jpg") center/cover no-repeat,#2a2623}
+  .hero-inner{padding:120px 0 80px}
+  .hero h1{font-size:clamp(3.2rem,10vw,7rem);font-weight:600;letter-spacing:.06em}
+  .hero .sub{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.35em;font-size:clamp(1rem,2.4vw,1.4rem);margin:6px 0 26px}
+  .hero p{max-width:560px;font-size:1.15rem;opacity:.92;margin-bottom:34px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:56px;font-size:.95rem;opacity:.9}
+  .hero-meta b{color:var(--accent)}
+
+  /* about */
+  .split{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .stat b{font-family:Oswald,sans-serif;font-size:2rem;display:block;color:var(--accent);line-height:1.1}
+  .stat span{font-size:.88rem;color:var(--muted)}
+  .about-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:44px;position:relative;overflow:hidden}
+  .about-card::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:var(--accent);opacity:.25}
+  .about-card h3{font-size:1.5rem;margin-bottom:18px}
+  .about-card ul{list-style:none;display:grid;gap:12px}
+  .about-card li::before{content:"—";color:var(--accent);margin-right:10px}
+
+  /* menu */
+  #meniu{background:var(--paper-2)}
+  .menu-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .menu-card{background:#fff;border-radius:var(--radius);padding:30px;border:1px solid var(--line)}
+  .menu-card .ic{font-size:2rem;margin-bottom:10px}
+  .menu-card h3{font-size:1.3rem;margin-bottom:14px}
+  .dish{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.97rem}
+  .dish:last-child{border:0}
+  .dish span:last-child{color:var(--muted);white-space:nowrap}
+  .menu-note{margin-top:30px;color:var(--muted);font-size:.92rem;text-align:center}
+
+  /* stay */
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .feat{padding:26px;border-radius:var(--radius);background:#fff;border:1px solid var(--line)}
+  .feat .ic{font-size:1.7rem;margin-bottom:8px}
+  .feat h3{font-size:1.05rem;margin-bottom:6px}
+  .feat p{font-size:.92rem;color:var(--muted)}
+
+  /* region */
+  #zona{background:var(--ink);color:#fff}
+  #zona .lead{color:#bdb6ad}
+  .places{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .place{border:1px solid #333;border-radius:var(--radius);padding:24px;background:var(--ink-2)}
+  .place b{display:block;font-family:Oswald,sans-serif;color:var(--accent);font-size:1.5rem}
+  .place h3{font-size:1.05rem;margin:4px 0 6px}
+  .place p{font-size:.9rem;color:#bdb6ad}
+
+  /* reviews */
+  .reviews{text-align:center}
+  .score{font-family:Oswald,sans-serif;font-size:5rem;line-height:1;color:var(--accent)}
+  .stars{font-size:1.6rem;letter-spacing:4px;color:#f5a623;margin:6px 0}
+  .reviews .lead{margin:0 auto 28px}
+
+  /* contact */
+  #contact{background:var(--paper-2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:stretch}
+  .info{background:#fff;border-radius:var(--radius);padding:38px;border:1px solid var(--line)}
+  .info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .info-row:last-of-type{border:0}
+  .info-row .ic{font-size:1.4rem;width:28px;flex-shrink:0}
+  .info-row small{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+  .info-row a{text-decoration:none;font-weight:600}
+  .info-row a:hover{color:var(--accent)}
+  .map{border-radius:var(--radius);overflow:hidden;min-height:420px;border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+
+  footer{background:#0d0d0d;color:#8d877f;padding:40px 0;font-size:.9rem}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer .brand{font-size:1.2rem}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:960px){
+    .split,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .menu-grid{grid-template-columns:1fr 1fr}
+    .features,.places{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:760px){
+    section{padding:72px 0}
+    .burger{display:block}
+    .links{position:fixed;inset:72px 0 auto 0;background:rgba(20,20,20,.98);flex-direction:column;padding:24px;gap:20px;display:none}
+    .links.open{display:flex}
+    header{background:rgba(20,20,20,.94)}
+    .menu-grid,.places{grid-template-columns:1fr}
+    .features{grid-template-columns:1fr 1fr;gap:12px}
+    .feat{padding:18px}.feat p{font-size:.85rem}
+    .stats{grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .stat{padding:14px}.stat b{font-size:1.5rem}
+    .about-card,.info{padding:28px}
+  }
+  /* reviews list */
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0 32px;text-align:left}
+  .rv{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
+  .rv-head{display:flex;align-items:center;gap:12px}
+  .rv-head img{width:42px;height:42px;border-radius:50%;object-fit:cover;background:var(--paper-2)}
+  .rv-head b{display:block;font-size:.97rem}
+  .rv-head small{color:var(--muted);font-size:.8rem}
+  .rv .stars{font-size:1rem;letter-spacing:2px;margin:0}
+  .rv p{font-size:.94rem;color:#3a3632;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+  .rv-src{font-size:.78rem;color:var(--muted);margin-top:auto}
+
+  /* consent placeholder (map / reviews before consent) */
+  .consent-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;background:var(--paper-2);color:var(--muted);height:100%;min-height:inherit;font-size:.95rem}
+  .consent-ph .btn{font-size:.9rem;padding:11px 20px}
+  .reviews .consent-ph{border:1px dashed var(--line);border-radius:var(--radius);margin:36px auto;max-width:640px;min-height:180px}
+
+  /* cookie banner */
+  .cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:560px;background:#fff;color:var(--ink);border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.28);padding:24px;display:none}
+  .cookie.show{display:block}
+  .cookie h3{font-size:1.1rem;margin-bottom:8px}
+  .cookie p{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+  .cookie p a{color:var(--accent)}
+  .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .cookie-actions .btn{padding:10px 18px;font-size:.88rem;flex:1;justify-content:center}
+  .btn-outline{border-color:var(--ink);color:var(--ink);background:#fff}
+  .btn-outline:hover{background:var(--ink);color:#fff}
+  .cookie-prefs{display:none;border-top:1px solid var(--line);margin:4px 0 16px;padding-top:12px}
+  .cookie-prefs.show{display:block}
+  .pref{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:10px 0}
+  .pref b{font-size:.92rem;display:block}
+  .pref span{font-size:.82rem;color:var(--muted)}
+  .pref input{width:20px;height:20px;accent-color:var(--accent);flex-shrink:0;margin-top:3px}
+
+  /* reservation modal */
+  .modal{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px}
+  .modal.show{display:flex}
+  .modal-box{background:#fff;border-radius:18px;max-width:480px;width:100%;max-height:92vh;overflow:auto;padding:30px;position:relative}
+  .modal-box h3{font-size:1.5rem;margin-bottom:4px}
+  .modal-box > p{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+  .x{position:absolute;top:12px;right:14px;background:none;border:0;font-size:1.7rem;cursor:pointer;color:var(--muted);line-height:1}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form-grid .full{grid-column:1/-1}
+  .form-grid label{font-size:.8rem;font-weight:600;color:var(--muted);display:block;margin-bottom:4px}
+  .form-grid input,.form-grid select,.form-grid textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem;background:var(--paper)}
+  .form-grid textarea{resize:vertical;min-height:70px}
+  .res-actions{display:grid;gap:10px;margin-top:20px}
+  .res-actions .btn{justify-content:center;width:100%}
+  .btn-wa{background:#25d366;color:#fff}.btn-wa:hover{background:#1ebe5a}
+  .res-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px}
+  .fab{position:fixed;right:18px;bottom:18px;z-index:90;box-shadow:0 10px 30px rgba(229,51,149,.45)}
+  footer a{color:#c9c2b8}
+  footer a:hover{color:var(--accent)}
+
+  @media (max-width:960px){.review-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:760px){.review-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.cookie{padding:20px}}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="brand">Belvedere<small>Gastro Pub &amp; Pensiune</small></a>
+    <button class="burger" aria-label="Meniu navigare" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+    <nav class="links">
+      <a href="#despre">Despre</a>
+      <a href="#meniu">Meniu</a>
+      <a href="#cazare">Cazare</a>
+      <a href="#zona">Zona</a>
+      <a href="#contact">Contact</a>
+      <a href="#rezervare" class="btn btn-accent" data-res>Rezervă</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <h1>Belvedere</h1>
+    <div class="sub">Gastro Pub &amp; Pensiune</div>
+    <p>Bucate delicioase, gătite cu grijă și doar din ingrediente proaspete — la poalele Cetății Neamțului, în Târgu Neamț.</p>
+    <div class="hero-actions">
+      <span class="glf-button btn btn-accent" data-glf-cuid="1cf26968-2ebc-4360-8b3f-4343ad7e7741" data-glf-ruid="165522b0-55e9-4193-8806-7162fb15306e">Comandă online</span>
+      <a href="#rezervare" class="btn btn-ghost" data-res>Rezervă o masă</a>
+    </div>
+    <div class="hero-meta">
+      <span><b>★ 4.4</b> · 650+ recenzii Google</span>
+      <span>📍 Str. Mărășești 215</span>
+      <span>📞 0747 295 151</span>
+    </div>
+  </div>
+</section>
+
+<section id="despre">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Despre noi</span>
+      <h2>Gust bun, oameni buni, locul potrivit</h2>
+      <p class="lead">Belvedere este gastro pub-ul și pensiunea din Târgu Neamț unde vii pentru o cină cu prietenii, o bere rece pe terasă sau un weekend liniștit în inima Moldovei. Gătim cu ingrediente proaspete și servim din toată inima.</p>
+      <div class="stats">
+        <div class="stat"><b>4.4★</b><span>rating Google</span></div>
+        <div class="stat"><b>650+</b><span>recenzii</span></div>
+        <div class="stat"><b>5 km</b><span>de Cetatea Neamț</span></div>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <h3>De ce Belvedere</h3>
+      <ul>
+        <li>Restaurant &amp; bar cu atmosferă relaxată</li>
+        <li>Terasă în aer liber și grătar în sezonul cald</li>
+        <li>Comandă online cu livrare sau ridicare</li>
+        <li>Cazare cu mic dejun inclus</li>
+        <li>Piscină, parcare gratuită, Wi‑Fi</li>
+        <li>Prietenoși cu animalele de companie</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="meniu">
+  <div class="wrap">
+    <div class="menu-head reveal">
+      <div>
+        <span class="eyebrow">Meniu</span>
+        <h2>Din bucătăria noastră</h2>
+        <p class="lead">Preparate tradiționale moldovenești și clasice de pub, alături de o selecție de beri și vinuri.</p>
+      </div>
+      <span class="glf-button btn btn-dark" data-glf-cuid="1cf26968-2ebc-4360-8b3f-4343ad7e7741" data-glf-ruid="165522b0-55e9-4193-8806-7162fb15306e">Vezi meniul complet &amp; comandă</span>
+    </div>
+    <!-- TODO: înlocuiți preparatele de mai jos cu cele reale din meniu și adăugați prețurile -->
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="ic">🍲</div>
+        <h3>Tradițional</h3>
+        <div class="dish"><span>Ciorbă rădăuțeană</span><span>— lei</span></div>
+        <div class="dish"><span>Sarmale cu mămăliguță</span><span>— lei</span></div>
+        <div class="dish"><span>Tochitură moldovenească</span><span>— lei</span></div>
+        <div class="dish"><span>Papanași cu smântână</span><span>— lei</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="ic">🍔</div>
+        <h3>Gastro Pub</h3>
+        <div class="dish"><span>Burger Belvedere</span><span>— lei</span></div>
+        <div class="dish"><span>Aripioare crocante</span><span>— lei</span></div>
+        <div class="dish"><span>Platou pub pentru doi</span><span>— lei</span></div>
+        <div class="dish"><span>Pizza din cuptor</span><span>— lei</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="ic">🍺</div>
+        <h3>Bar</h3>
+        <div class="dish"><span>Bere la draft</span><span>— lei</span></div>
+        <div class="dish"><span>Vinuri românești</span><span>— lei</span></div>
+        <div class="dish"><span>Cocktailuri</span><span>— lei</span></div>
+        <div class="dish"><span>Limonadă de casă</span><span>— lei</span></div>
+      </div>
+    </div>
+    <p class="menu-note">Meniul complet și prețurile actualizate sunt disponibile prin butonul „Comandă online”.</p>
+  </div>
+</section>
+
+<section id="cazare">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Cazare</span>
+      <h2>Rămâi peste noapte</h2>
+      <p class="lead">Pensiunea Belvedere oferă camere confortabile, înconjurate de natură, la doar câțiva kilometri de Cetatea Neamțului și de marile mănăstiri ale Moldovei.</p>
+    </div>
+    <div class="features">
+      <div class="feat reveal"><div class="ic">🍳</div><h3>Mic dejun inclus</h3><p>Începe ziua cu un mic dejun gustos.</p></div>
+      <div class="feat reveal"><div class="ic">🏊</div><h3>Piscină</h3><p>Relaxare în zilele calde de vară.</p></div>
+      <div class="feat reveal"><div class="ic">🅿️</div><h3>Parcare gratuită</h3><p>Loc de parcare pentru toți oaspeții.</p></div>
+      <div class="feat reveal"><div class="ic">🐾</div><h3>Pet friendly</h3><p>Prietenii tăi necuvântători sunt bineveniți.</p></div>
+      <div class="feat reveal"><div class="ic">📶</div><h3>Wi‑Fi gratuit</h3><p>Internet în toată pensiunea.</p></div>
+      <div class="feat reveal"><div class="ic">🛎️</div><h3>Room service</h3><p>Preparatele restaurantului, direct în cameră.</p></div>
+      <div class="feat reveal"><div class="ic">🔥</div><h3>Grătar</h3><p>Facilități de grătar în sezonul cald.</p></div>
+      <div class="feat reveal"><div class="ic">🕒</div><h3>Check-in 15:00</h3><p>Check-out până la ora 12:00.</p></div>
+    </div>
+    <div style="margin-top:36px" class="reveal"><a href="#rezervare" class="btn btn-accent" data-res="Cazare">Rezervă o cameră</a></div>
+  </div>
+</section>
+
+<section id="zona">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">În apropiere</span>
+      <h2>Descoperă Ținutul Neamțului</h2>
+      <p class="lead">Belvedere este punctul de plecare ideal pentru istorie, spiritualitate și natură.</p>
+    </div>
+    <div class="places">
+      <div class="place reveal"><b>5 km</b><h3>Cetatea Neamț</h3><p>Cetate medievală din secolul al XIV‑lea, astăzi muzeu.</p></div>
+      <div class="place reveal"><b>Centru</b><h3>Casa Ion Creangă</h3><p>Casa memorială din Humulești, satul copilăriei scriitorului.</p></div>
+      <div class="place reveal"><b>~15 km</b><h3>Mănăstirea Neamț</h3><p>Una dintre cele mai vechi și importante mănăstiri din Moldova.</p></div>
+      <div class="place reveal"><b>~20 km</b><h3>Agapia &amp; Văratec</h3><p>Mănăstiri celebre, înconjurate de păduri și dealuri.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap reveal">
+    <span class="eyebrow">Recenzii</span>
+    <div class="score" id="rv-score">4.4</div>
+    <div class="stars" id="rv-stars">★★★★☆</div>
+    <p class="lead"><span id="rv-count">Peste 650</span> de oaspeți ne-au evaluat pe Google. Mulțumim că ne-ați trecut pragul!</p>
+    <!-- Live Google reviews (Places API). Loaded only after consent. -->
+    <div id="reviews-slot" class="consent-ph">
+      <span>⭐ Recenziile sunt încărcate de la Google, care poate seta cookie-uri.</span>
+      <button class="btn btn-dark" data-consent-accept>Afișează recenziile Google</button>
+    </div>
+    <div class="review-grid" id="review-grid" hidden></div>
+    <a class="btn btn-dark" target="_blank" rel="noopener" href="https://www.google.com/maps/place/?q=place_id:ChIJ8_ycF1BHNUcRmx88YS8ZvBM">Toate recenziile pe Google</a>
+    <a class="btn btn-outline" target="_blank" rel="noopener" href="https://search.google.com/local/writereview?placeid=ChIJ8_ycF1BHNUcRmx88YS8ZvBM">Lasă o recenzie</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:40px">
+      <span class="eyebrow">Contact &amp; rezervări</span>
+      <h2>Te așteptăm</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="info reveal">
+        <div class="info-row"><div class="ic">📍</div><div><small>Adresă</small>Str. Mărășești nr. 215<br>615200 Târgu Neamț, jud. Neamț</div></div>
+        <div class="info-row"><div class="ic">📞</div><div><small>Telefon</small><a href="tel:+40747295151">0747 295 151</a></div></div>
+        <div class="info-row"><div class="ic">✉️</div><div><small>Email</small><a href="mailto:rezervari@pensiuneabelvedere.ro">rezervari@pensiuneabelvedere.ro</a></div></div>
+        <!-- TODO: adăugați programul real al restaurantului -->
+        <div class="info-row"><div class="ic">🕒</div><div><small>Program restaurant</small>Luni – Duminică · sunați pentru program</div></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+          <a href="#rezervare" class="btn btn-accent" data-res>Rezervă</a>
+          <a href="tel:+40747295151" class="btn btn-outline">Sună acum</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=47.220177,26.3709947" target="_blank" rel="noopener" class="btn btn-dark">Indicații</a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <!-- Google Maps is loaded only after the visitor agrees to external content (GDPR) -->
+        <div id="map-slot" class="consent-ph">
+          <span>🗺️ Harta este furnizată de Google Maps, care poate seta cookie-uri.</span>
+          <button class="btn btn-dark" data-consent-accept>Afișează harta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span class="brand" style="color:#fff">Belvedere</span>
+    <span>© <span id="yr"></span> Belvedere Gastro Pub &amp; Pensiune · Str. Mărășești 215, Târgu Neamț</span>
+    <span><a href="politica-confidentialitate.html">Confidențialitate &amp; cookie-uri</a> · <a href="#" data-cookie-settings>Setări cookie</a> · <a href="https://anpc.ro" target="_blank" rel="noopener">ANPC</a></span>
+  </div>
+</footer>
+
+<!-- Floating reservation button -->
+<a href="#rezervare" class="btn btn-accent fab" data-res aria-label="Rezervă">📅 Rezervă</a>
+
+<!-- Reservation popup -->
+<div class="modal" id="res-modal" role="dialog" aria-modal="true" aria-labelledby="res-title">
+  <div class="modal-box">
+    <button class="x" aria-label="Închide" data-close>×</button>
+    <h3 id="res-title">Fă o rezervare</h3>
+    <p>Completează detaliile și trimite-ne cererea pe WhatsApp sau email, ori sună-ne direct. Îți confirmăm rezervarea cât mai repede.</p>
+    <form id="res-form" class="form-grid" onsubmit="return false">
+      <div class="full"><label for="r-type">Rezervare pentru</label>
+        <select id="r-type"><option>Masă la restaurant</option><option>Cazare</option><option>Eveniment / grup</option></select></div>
+      <div class="full"><label for="r-name">Nume</label><input id="r-name" autocomplete="name" placeholder="Numele tău"></div>
+      <div><label for="r-date">Data</label><input id="r-date" type="date"></div>
+      <div><label for="r-time">Ora</label><input id="r-time" type="time" value="19:00"></div>
+      <div><label for="r-people">Persoane</label><input id="r-people" type="number" min="1" max="200" value="2"></div>
+      <div><label for="r-phone">Telefonul tău</label><input id="r-phone" type="tel" autocomplete="tel" placeholder="07xx xxx xxx"></div>
+      <div class="full"><label for="r-notes">Mențiuni (opțional)</label><textarea id="r-notes" placeholder="Ex: masă pe terasă, aniversare, nr. nopți..."></textarea></div>
+    </form>
+    <div class="res-actions">
+      <a class="btn btn-wa" id="res-wa" href="#" target="_blank" rel="noopener">💬 Trimite pe WhatsApp</a>
+      <a class="btn btn-dark" id="res-mail" href="#">✉️ Trimite pe email</a>
+      <a class="btn btn-outline" href="tel:+40747295151">📞 Sună: 0747 295 151</a>
+    </div>
+    <p class="res-hint">Datele introduse nu sunt stocate pe site; ele sunt doar copiate în mesajul trimis de tine. <a href="politica-confidentialitate.html">Detalii</a></p>
+  </div>
+</div>
+
+<!-- Cookie consent banner -->
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-title">
+  <h3 id="cookie-title">🍪 Cookie-uri</h3>
+  <p>Folosim doar stocare strict necesară pentru a reține alegerea ta. Cu acordul tău, încărcăm și conținut extern (harta și recenziile Google, comanda online GloriaFood), care poate seta cookie-uri. Poți schimba oricând alegerea din „Setări cookie”. <a href="politica-confidentialitate.html">Politica de confidențialitate</a></p>
+  <div class="cookie-prefs" id="cookie-prefs">
+    <div class="pref"><div><b>Strict necesare</b><span>Rețin alegerea ta privind cookie-urile. Mereu active.</span></div><input type="checkbox" checked disabled></div>
+    <div class="pref"><div><b>Conținut extern</b><span>Google Maps, recenzii Google, comandă online (GloriaFood).</span></div><input type="checkbox" id="pref-external"></div>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-outline" id="ck-reject">Refuz</button>
+    <button class="btn btn-outline" id="ck-settings">Setări</button>
+    <button class="btn btn-accent" id="ck-accept">Accept tot</button>
+  </div>
+</div>
+
+<script>
+  /* ===== CONFIG ===== */
+  // Google Maps Platform API key (Places API (New) + Maps JavaScript API enabled), restricted to your domain.
+  const GOOGLE_API_KEY = "";           // <-- paste your key here
+  const PLACE_ID = "ChIJ8_ycF1BHNUcRmx88YS8ZvBM"; // Belvedere Gastro-Han, Târgu Neamț
+  const PHONE_INTL = "40747295151";
+  const EMAIL = "rezervari@pensiuneabelvedere.ro";
+
+  /* ===== COOKIE CONSENT ===== */
+  const CK = "belvedere_consent_v1";
+  const getConsent = () => { try { return JSON.parse(localStorage.getItem(CK)); } catch { return null; } };
+  const banner = document.getElementById('cookie');
+  const prefsBox = document.getElementById('cookie-prefs');
+  const prefExt = document.getElementById('pref-external');
+
+  function saveConsent(external) {
+    const c = { necessary: true, external: !!external, date: new Date().toISOString() };
+    try { localStorage.setItem(CK, JSON.stringify(c)); } catch {}
+    banner.classList.remove('show');
+    if (external) loadExternal(); else if (externalLoaded) location.reload(); // withdraw → reload to drop third-party content
+  }
+  function openBanner(showPrefs) {
+    const c = getConsent();
+    prefExt.checked = !!(c && c.external);
+    prefsBox.classList.toggle('show', !!showPrefs);
+    document.getElementById('ck-settings').textContent = showPrefs ? 'Salvează' : 'Setări';
+    banner.classList.add('show');
+  }
+  document.getElementById('ck-accept').onclick = () => saveConsent(true);
+  document.getElementById('ck-reject').onclick = () => saveConsent(false);
+  document.getElementById('ck-settings').onclick = () => {
+    if (prefsBox.classList.contains('show')) saveConsent(prefExt.checked); else openBanner(true);
+  };
+  document.querySelectorAll('[data-cookie-settings]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openBanner(true); }));
+  document.querySelectorAll('[data-consent-accept]').forEach(b => b.addEventListener('click', () => saveConsent(true)));
+
+  let externalLoaded = false;
+  function loadExternal() {
+    if (externalLoaded) return; externalLoaded = true;
+    // Google Maps embed
+    document.getElementById('map-slot').outerHTML =
+      '<iframe title="Hartă Belvedere Gastro Pub" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=47.220177,26.3709947&z=16&output=embed"></iframe>';
+    // GloriaFood online ordering
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://www.fbgcdn.com/embedder/css/order-online.css'; document.head.appendChild(css);
+    const js = document.createElement('script'); js.src = 'https://www.fbgcdn.com/embedder/js/ewm2.js'; js.async = true; document.body.appendChild(js);
+    // Google reviews
+    loadReviews();
+  }
+
+  // "Comandă online" before consent → ask for consent (the ordering widget is a third party)
+  document.querySelectorAll('.glf-button').forEach(b => b.addEventListener('click', e => {
+    if (!externalLoaded) { e.stopImmediatePropagation(); openBanner(true); prefExt.checked = true; }
+  }, true));
+
+  /* ===== GOOGLE REVIEWS (Places API New) ===== */
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const starStr = r => '★'.repeat(Math.round(r)) + '☆'.repeat(5 - Math.round(r));
+  async function loadReviews() {
+    const slot = document.getElementById('reviews-slot');
+    if (!GOOGLE_API_KEY) { slot.remove(); return; } // no key yet → keep rating + links only
+    try {
+      const res = await fetch(`https://places.googleapis.com/v1/places/${PLACE_ID}?languageCode=ro`, {
+        headers: { 'X-Goog-Api-Key': GOOGLE_API_KEY, 'X-Goog-FieldMask': 'rating,userRatingCount,reviews' }
+      });
+      if (!res.ok) throw new Error(res.status);
+      const d = await res.json();
+      if (d.rating) { document.getElementById('rv-score').textContent = d.rating.toFixed(1); document.getElementById('rv-stars').textContent = starStr(d.rating); }
+      if (d.userRatingCount) document.getElementById('rv-count').textContent = d.userRatingCount;
+      const grid = document.getElementById('review-grid');
+      grid.innerHTML = (d.reviews || []).slice(0, 6).map(r => {
+        const a = r.authorAttribution || {};
+        const text = (r.text && r.text.text) || (r.originalText && r.originalText.text) || '';
+        return `<article class="rv">
+          <div class="rv-head">${a.photoUri ? `<img src="${esc(a.photoUri)}" alt="" referrerpolicy="no-referrer" loading="lazy">` : ''}
+            <div><b>${a.uri ? `<a href="${esc(a.uri)}" target="_blank" rel="noopener">${esc(a.displayName)}</a>` : esc(a.displayName)}</b>
+            <small>${esc(r.relativePublishTimeDescription)}</small></div></div>
+          <div class="stars">${starStr(r.rating || 0)}</div>
+          <p>${esc(text)}</p>
+          <span class="rv-src">Recenzie de pe Google</span>
+        </article>`;
+      }).join('');
+      grid.hidden = !grid.innerHTML;
+      slot.remove();
+    } catch (err) {
+      console.warn('Google reviews could not be loaded:', err);
+      slot.remove();
+    }
+  }
+
+  /* ===== RESERVATION ===== */
+  const modal = document.getElementById('res-modal');
+  const $ = id => document.getElementById(id);
+  const dateIn = $('r-date');
+  dateIn.min = new Date().toISOString().slice(0, 10);
+  dateIn.value = dateIn.min;
+  function openRes(type) {
+    if (type) $('r-type').value = type;
+    modal.classList.add('show'); updateLinks();
+    setTimeout(() => $('r-name').focus(), 50);
+  }
+  document.querySelectorAll('[data-res]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault(); openRes(a.dataset.res === 'Cazare' ? 'Cazare' : '');
+  }));
+  modal.addEventListener('click', e => { if (e.target === modal || e.target.hasAttribute('data-close')) modal.classList.remove('show'); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('show'); });
+  function buildMsg() {
+    const d = dateIn.value ? new Date(dateIn.value + 'T00:00').toLocaleDateString('ro-RO', { weekday:'long', day:'numeric', month:'long', year:'numeric' }) : '-';
+    return [
+      'Bună ziua! Aș dori o rezervare la Belvedere Gastro Pub.',
+      `Tip: ${$('r-type').value}`,
+      `Nume: ${$('r-name').value || '-'}`,
+      `Data: ${d}`,
+      `Ora: ${$('r-time').value || '-'}`,
+      `Persoane: ${$('r-people').value || '-'}`,
+      `Telefon: ${$('r-phone').value || '-'}`,
+      $('r-notes').value ? `Mențiuni: ${$('r-notes').value}` : ''
+    ].filter(Boolean).join('\n');
+  }
+  function updateLinks() {
+    const msg = buildMsg();
+    $('res-wa').href = `https://wa.me/${PHONE_INTL}?text=${encodeURIComponent(msg)}`;
+    $('res-mail').href = `mailto:${EMAIL}?subject=${encodeURIComponent('Rezervare - ' + $('r-type').value)}&body=${encodeURIComponent(msg)}`;
+  }
+  $('res-form').addEventListener('input', updateLinks);
+
+  /* ===== INIT ===== */
+  const c0 = getConsent();
+  if (!c0) setTimeout(() => openBanner(false), 600);
+  else if (c0.external) loadExternal();
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const h = document.querySelector('header');
+  const onScroll = () => h.classList.toggle('scrolled', scrollY > 40);
+  addEventListener('scroll', onScroll); onScroll();
+  document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => document.querySelector('.links').classList.remove('open')));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

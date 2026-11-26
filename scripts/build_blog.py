@@ -4,7 +4,7 @@ ROOT = sys.argv[1]
 U = "https://belvedere-gastro-pub.vercel.app"
 DATE = "2026-11-26"
 DATE_RO = "26 noiembrie 2026"
-IMG = "https://www.pensiuneabelvedere.ro/img/background-desktop.jpg"
+IMG = U + "/img/hero.jpg"
 
 CTA = """
 <aside class="cta">
@@ -287,6 +287,20 @@ FOOT = """
 </html>
 """
 
+SEO_TITLE_OVERRIDES = {
+    "Cum ajungi în Târgu Neamț din Iași, Suceava, Piatra Neamț și București": "Cum ajungi în Târgu Neamț: mașină, tren, avion",
+    "Cum ajungi la Cetatea Neamț și ce trebuie să știi înainte de vizită": "Cum ajungi la Cetatea Neamț: ghid de vizită",
+}
+
+def seo_title(t, limit=60):
+    if t in SEO_TITLE_OVERRIDES:
+        return SEO_TITLE_OVERRIDES[t]
+    """Keep <title> within ~60 chars so Google doesn't truncate it."""
+    for cand in (t + " | Belvedere", t, t.split(":")[0] + " | Belvedere", t.split(":")[0]):
+        if len(cand) <= limit:
+            return cand
+    return t[:limit - 1].rsplit(" ", 1)[0] + "…"
+
 def ld(obj):
     return '<script type="application/ld+json">\n' + json.dumps(obj, ensure_ascii=False, indent=1) + '\n</script>'
 
@@ -310,7 +324,7 @@ for a in ARTICLES:
     i = pool.index(a)
     others = [pool[(i + k) % len(pool)] for k in (1, 2, 3)]
     related = "\n".join(f'<a class="rel" href="/blog/{o["slug"]}.html"><span>{o["tag"]}</span>{html.escape(o["title"])}</a>' for o in others)
-    page = HEAD.format(title=html.escape(a["title"]) + " | Belvedere", desc=html.escape(a["desc"]), url=url, img=IMG, ogtype="article",
+    page = HEAD.format(title=html.escape(seo_title(a["title"])), desc=html.escape(a["desc"]), url=url, img=IMG, ogtype="article",
                        ld=ld({"@context": "https://schema.org", "@graph": graph}))
     page += f"""
 <main class="wrap article">

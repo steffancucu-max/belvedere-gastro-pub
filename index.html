@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Belvedere – Restaurant, Gastro Pub & Pensiune în Târgu Neamț</title>
-<meta name="description" content="Restaurant și pensiune în Târgu Neamț: gastro pub cu bucate proaspete, restaurant cu terasă și cazare eco cu mic dejun lângă Cetatea Neamț. Str. Mărășești 215. Rezervări: 0747 295 151.">
+<meta name="description" content="Restaurant cu terasă și pensiune în Târgu Neamț: gastro pub, meniul zilei, camere cu mic dejun la 3,6 km de Cetatea Neamț. Rezervări: 0747 295 151.">
 <link rel="canonical" href="https://belvedere-gastro-pub.vercel.app/">
 <meta property="og:type" content="restaurant">
 <meta property="og:locale" content="ro_RO">
 <meta property="og:title" content="Belvedere – Restaurant, Gastro Pub & Pensiune în Târgu Neamț">
 <meta property="og:description" content="Gastro pub, restaurant cu terasă și pensiune eco lângă Cetatea Neamț. Rezervări: 0747 295 151.">
 <meta property="og:url" content="https://belvedere-gastro-pub.vercel.app/">
-<meta property="og:image" content="https://www.pensiuneabelvedere.ro/img/background-desktop.jpg">
+<meta property="og:image" content="https://belvedere-gastro-pub.vercel.app/img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -25,7 +25,7 @@
       "url": "https://belvedere-gastro-pub.vercel.app/",
       "telephone": "+40747295151",
       "email": "rezervari@pensiuneabelvedere.ro",
-      "image": "https://www.pensiuneabelvedere.ro/img/background-desktop.jpg",
+      "image": "https://belvedere-gastro-pub.vercel.app/img/hero.jpg",
       "servesCuisine": ["Românească", "Internațională", "Gastropub"],
       "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "closes": "22:00"}],
       "sameAs": ["https://www.facebook.com/BelvederePensiuneRestaurant/", "https://www.instagram.com/belvedere.gastrohan/"],
@@ -43,7 +43,7 @@
       "description": "Pensiune în Târgu Neamț, lângă Cetatea Neamț, certificată EU Ecolabel, cu mic dejun inclus, parcare gratuită și camere pet friendly.",
       "url": "https://belvedere-gastro-pub.vercel.app/#cazare",
       "telephone": "+40747295151",
-      "image": "https://www.pensiuneabelvedere.ro/img/background-desktop.jpg",
+      "image": "https://belvedere-gastro-pub.vercel.app/img/hero.jpg",
       "checkinTime": "15:00",
       "checkoutTime": "12:00",
       "petsAllowed": true,
@@ -164,6 +164,8 @@
 }
 </script>
 <!-- Fonts from Bunny Fonts (EU, no cookies, no IP logging) instead of Google Fonts, for GDPR -->
+<link rel="preload" as="image" href="/img/hero.jpg" media="(min-width:761px)">
+<link rel="preload" as="image" href="/img/hero-mobile.jpg" media="(max-width:760px)">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=oswald:400,500,600|inter:400,500,600&display=swap" rel="stylesheet">
 <style>
@@ -210,10 +212,11 @@
   /* hero */
   .hero{min-height:100vh;display:flex;align-items:center;color:#fff;position:relative;
     background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7)),
-      url("https://www.pensiuneabelvedere.ro/img/background-desktop.jpg") center/cover no-repeat,#2a2623}
+      url("/img/hero.jpg") center/cover no-repeat,#2a2623}
+  @media (max-width:760px){.hero{background-image:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7)),url("/img/hero-mobile.jpg")}}
   .hero-inner{padding:120px 0 80px}
   .hero h1{font-size:clamp(3.2rem,10vw,7rem);font-weight:600;letter-spacing:.06em}
-  .hero .sub{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.35em;font-size:clamp(1rem,2.4vw,1.4rem);margin:6px 0 26px}
+  .hero h1 .sub{display:block;font-weight:400;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.35em;font-size:clamp(1rem,2.4vw,1.4rem);margin:6px 0 26px}
   .hero p{max-width:560px;font-size:1.15rem;opacity:.92;margin-bottom:34px}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
   .hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:56px;font-size:.95rem;opacity:.9}
@@ -391,8 +394,7 @@
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <h1>Belvedere</h1>
-    <div class="sub">Gastro Pub &amp; Pensiune</div>
+    <h1>Belvedere<span class="sub">Restaurant, Gastro Pub &amp; Pensiune · Târgu Neamț</span></h1>
     <p>Restaurant, gastro pub și pensiune în Târgu Neamț. Bucate gătite cu grijă, doar din ingrediente proaspete, aproape de Cetatea Neamțului.</p>
     <div class="hero-actions">
       <a href="tel:+40747295151" class="btn btn-accent">📞 Comandă telefonic</a>

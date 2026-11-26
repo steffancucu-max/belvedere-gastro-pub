@@ -247,8 +247,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from articles_batch2 import ARTICLES2
 from articles_batch3 import ARTICLES3
 HIDDEN = ARTICLES2 + ARTICLES3
-VISIBLE = list(ARTICLES)          # listed on /blog/ (batch 1)
-ARTICLES = ARTICLES + HIDDEN    # batch 2 is 'backend': only sitemap, llms.txt and links between batch-2 articles
+VISIBLE = []                      # no article is linked from the visible site
+ARTICLES = ARTICLES + HIDDEN      # all articles are 'backend': reachable only via sitemap.xml, llms.txt and links between articles
 
 HEAD = """<!doctype html>
 <html lang="ro">
@@ -273,7 +273,7 @@ HEAD = """<!doctype html>
 <body>
 <header class="top"><div class="wrap nav">
   <a href="/" class="brand">Belvedere<small>Gastro Pub &amp; Pensiune</small></a>
-  <nav><a href="/blog/">Blog</a><a href="/#meniu">Meniu</a><a href="/#cazare">Cazare</a><a href="/#contact" class="btn btn-accent">Rezervă</a></nav>
+  <nav><a href="/#meniu">Meniu</a><a href="/#cazare">Cazare</a><a href="/#contact" class="btn btn-accent">Rezervă</a></nav>
 </div></header>
 """
 
@@ -301,13 +301,12 @@ for a in ARTICLES:
        "author": publisher, "publisher": publisher, "mainEntityOfPage": url},
       {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Acasă", "item": U + "/"},
-        {"@type": "ListItem", "position": 2, "name": "Blog", "item": U + "/blog/"},
-        {"@type": "ListItem", "position": 3, "name": a["title"], "item": url}]},
+        {"@type": "ListItem", "position": 2, "name": a["title"], "item": url}]},
       {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]},
     ]
     faq_html = "\n".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(ans)}</p></details>" for q, ans in a["faq"])
     summary_html = f'<div class="summary"><b>Pe scurt</b><p>{html.escape(a["summary"])}</p></div>' if a.get("summary") else ""
-    pool = VISIBLE if a in VISIBLE else HIDDEN
+    pool = ARTICLES
     i = pool.index(a)
     others = [pool[(i + k) % len(pool)] for k in (1, 2, 3)]
     related = "\n".join(f'<a class="rel" href="/blog/{o["slug"]}.html"><span>{o["tag"]}</span>{html.escape(o["title"])}</a>' for o in others)
@@ -315,7 +314,7 @@ for a in ARTICLES:
                        ld=ld({"@context": "https://schema.org", "@graph": graph}))
     page += f"""
 <main class="wrap article">
-  <nav class="crumbs"><a href="/">Acasă</a> › <a href="/blog/">Blog</a> › <span>{a['tag']}</span></nav>
+  <nav class="crumbs"><a href="/">Acasă</a> › <span>{a['tag']}</span></nav>
   <span class="eyebrow">{a['tag']}</span>
   <h1>{html.escape(a['title'])}</h1>
   <p class="meta">Echipa Belvedere · {DATE_RO} · {a['read']} min de citit</p>
@@ -332,34 +331,7 @@ for a in ARTICLES:
     page += FOOT
     open(os.path.join(ROOT, "blog", a["slug"] + ".html"), "w").write(page)
 
-# index
-cards = "\n".join(f"""<a class="card" href="/blog/{a['slug']}.html">
-  <span class="eyebrow">{a['tag']} · {a['read']} min</span>
-  <h2>{html.escape(a['title'])}</h2>
-  <p>{html.escape(a['desc'])}</p>
-  <span class="more">Citește articolul →</span>
-</a>""" for a in VISIBLE)
-idx_ld = ld({"@context": "https://schema.org", "@type": "Blog", "name": "Blogul Belvedere", "url": U + "/blog/", "inLanguage": "ro-RO", "publisher": publisher,
-             "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": f"{U}/blog/{a['slug']}.html", "datePublished": DATE} for a in VISIBLE]})
-page = HEAD.format(title="Blog Belvedere: ghiduri pentru Târgu Neamț, cazare și gastronomie",
-                   desc="Ghiduri și sfaturi pentru Târgu Neamț: ce să vizitezi, Cetatea Neamț, mănăstirile Agapia și Văratec, cazare și preparate moldovenești.",
-                   url=U + "/blog/", img=IMG, ogtype="website", ld=idx_ld)
-page += f"""
-<main class="wrap">
-  <section class="blog-hero">
-    <span class="eyebrow">Blog</span>
-    <h1>Ghiduri pentru Târgu Neamț</h1>
-    <p class="lead">Ce să vizitezi, unde să mănânci și cum să-ți organizezi drumul prin Ținutul Neamțului, de la gazdele tale de la Belvedere.</p>
-  </section>
-  <div class="cards">
-{cards}
-  </div>
-  {CTA}
-</main>
-"""
-page += FOOT
-open(os.path.join(ROOT, "blog", "index.html"), "w").write(page)
-
+# no public blog index: /blog/ redirects to the home page (vercel.json)
 open(os.path.join(ROOT, "blog", "blog.css"), "w").write(""":root{--ink:#141414;--paper:#faf8f5;--paper-2:#f1ede6;--muted:#6b6660;--line:#e2ddd5;--accent:#e53395;--accent-dark:#c2207b;--radius:14px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.75;font-size:17px}
@@ -425,7 +397,7 @@ footer a{color:#c9c2b8}
 print("\n".join(a["slug"] for a in ARTICLES))
 
 # ---- sitemap.xml and llms.txt (generated) ----
-pages = ["", "politica-confidentialitate.html", "blog/"] + [f"blog/{a['slug']}.html" for a in ARTICLES]
+pages = ["", "politica-confidentialitate.html"] + [f"blog/{a['slug']}.html" for a in ARTICLES]
 open(os.path.join(ROOT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{U}/{p}</loc><lastmod>{DATE}</lastmod></url>\n" for p in pages) + "</urlset>\n")
 art_lines = "\n".join(f"- [{a['title']}]({U}/blog/{a['slug']}.html): {a['desc']}" for a in ARTICLES)
 open(os.path.join(ROOT, "llms.txt"), "w").write(f"""# Belvedere Gastro Pub & Pensiune
@@ -450,6 +422,5 @@ open(os.path.join(ROOT, "llms.txt"), "w").write(f"""# Belvedere Gastro Pub & Pen
 
 ## Pagini
 - [Pagina principală]({U}/)
-- [Blog]({U}/blog/)
 {art_lines}
 """)

@@ -20,7 +20,6 @@
 
 ## Pagini
 - [Pagina principală](https://belvedere-gastro-pub.vercel.app/)
-- [Blog](https://belvedere-gastro-pub.vercel.app/blog/)
 - [Ce să vizitezi în Târgu Neamț: ghid de weekend (1–2 zile)](https://belvedere-gastro-pub.vercel.app/blog/ce-sa-vizitezi-in-targu-neamt.html): Ghid practic pentru un weekend în Târgu Neamț: Cetatea Neamț, Casa Ion Creangă, mănăstirile din zonă, unde mănânci și unde dormi.
 - [Cum ajungi la Cetatea Neamț și ce trebuie să știi înainte de vizită](https://belvedere-gastro-pub.vercel.app/blog/cum-ajungi-la-cetatea-neamt.html): Întrebări frecvente despre Cetatea Neamț: cum ajungi, cât durează vizita, când e cel mai bine să mergi și ce faci după.
 - [Cazare lângă Cetatea Neamț: cum alegi pensiunea potrivită](https://belvedere-gastro-pub.vercel.app/blog/cazare-langa-cetatea-neamt.html): Ce să verifici când cauți cazare în Târgu Neamț: locație, parcare, mic dejun, recenzii și animale de companie. Plus ce oferă Pensiunea Belvedere.

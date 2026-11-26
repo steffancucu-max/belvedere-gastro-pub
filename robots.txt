@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://belvedere-gastro-pub.vercel.app/sitemap.xml

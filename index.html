@@ -303,6 +303,14 @@
     .stat{padding:14px}.stat b{font-size:1.5rem}
     .about-card,.info{padding:28px}
   }
+  /* blog teaser */
+  #blog{background:#fff;border-top:1px solid var(--line)}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  .blog-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-decoration:none;color:var(--ink);transition:.2s}
+  .blog-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .blog-card span{color:var(--accent);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .blog-card h3{font-size:1.15rem;margin-top:8px}
+  @media (max-width:760px){.blog-grid{grid-template-columns:1fr}}
   /* FAQ */
   #intrebari{background:var(--paper-2)}
   .faq-wrap{max-width:860px}
@@ -383,6 +391,7 @@
       <a href="#cazare">Cazare</a>
       <a href="#zona">Zona</a>
       <a href="#intrebari">Întrebări</a>
+      <a href="/blog/">Blog</a>
       <a href="#contact">Contact</a>
       <a href="#rezervare" class="btn btn-accent" data-res>Rezervă</a>
     </nav>
@@ -592,6 +601,22 @@
   </div>
 </section>
 
+<section id="blog">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Blog</span>
+      <h2>Ghiduri pentru Târgu Neamț</h2>
+      <p class="lead">Sfaturi de la gazdele tale: ce să vizitezi, unde să mănânci și cum să-ți plănuiești drumul.</p>
+    </div>
+    <div class="blog-grid">
+      <a class="blog-card reveal" href="/blog/ce-sa-vizitezi-in-targu-neamt.html"><span>Ghid</span><h3>Ce să vizitezi în Târgu Neamț: ghid de weekend</h3></a>
+      <a class="blog-card reveal" href="/blog/cum-ajungi-la-cetatea-neamt.html"><span>Întrebări</span><h3>Cum ajungi la Cetatea Neamț și ce să știi</h3></a>
+      <a class="blog-card reveal" href="/blog/manastirile-agapia-si-varatec.html"><span>Traseu</span><h3>Mănăstirile Agapia și Văratec într-o zi</h3></a>
+    </div>
+    <div class="reveal" style="margin-top:28px"><a class="btn btn-dark" href="/blog/">Toate articolele</a></div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:40px">
@@ -626,7 +651,7 @@
   <div class="wrap foot">
     <span class="brand" style="color:#fff">Belvedere</span>
     <span>© <span id="yr"></span> Belvedere Gastro Pub &amp; Pensiune · Str. Mărășești 215, Târgu Neamț</span>
-    <span><a href="politica-confidentialitate.html">Confidențialitate &amp; cookie-uri</a> · <a href="#" data-cookie-settings>Setări cookie</a> · <a href="https://anpc.ro" target="_blank" rel="noopener">ANPC</a> · <a href="https://www.facebook.com/BelvederePensiuneRestaurant/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/belvedere.gastrohan/" target="_blank" rel="noopener">Instagram</a></span>
+    <span><a href="/blog/">Blog</a> · <a href="politica-confidentialitate.html">Confidențialitate &amp; cookie-uri</a> · <a href="#" data-cookie-settings>Setări cookie</a> · <a href="https://anpc.ro" target="_blank" rel="noopener">ANPC</a> · <a href="https://www.facebook.com/BelvederePensiuneRestaurant/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/belvedere.gastrohan/" target="_blank" rel="noopener">Instagram</a></span>
   </div>
 </footer>
 

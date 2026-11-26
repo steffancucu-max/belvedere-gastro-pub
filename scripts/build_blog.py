@@ -243,6 +243,11 @@ ARTICLES = [
  },
 ]
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from articles_batch2 import ARTICLES2
+VISIBLE = list(ARTICLES)          # listed on /blog/ (batch 1)
+ARTICLES = ARTICLES + ARTICLES2    # batch 2 is 'backend': only sitemap, llms.txt and links between batch-2 articles
+
 HEAD = """<!doctype html>
 <html lang="ro">
 <head>
@@ -299,7 +304,10 @@ for a in ARTICLES:
       {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]},
     ]
     faq_html = "\n".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(ans)}</p></details>" for q, ans in a["faq"])
-    others = [o for o in ARTICLES if o is not a][:3]
+    summary_html = f'<div class="summary"><b>Pe scurt</b><p>{html.escape(a["summary"])}</p></div>' if a.get("summary") else ""
+    pool = VISIBLE if a in VISIBLE else ARTICLES2
+    i = pool.index(a)
+    others = [pool[(i + k) % len(pool)] for k in (1, 2, 3)]
     related = "\n".join(f'<a class="rel" href="/blog/{o["slug"]}.html"><span>{o["tag"]}</span>{html.escape(o["title"])}</a>' for o in others)
     page = HEAD.format(title=html.escape(a["title"]) + " | Belvedere", desc=html.escape(a["desc"]), url=url, img=IMG, ogtype="article",
                        ld=ld({"@context": "https://schema.org", "@graph": graph}))
@@ -310,6 +318,7 @@ for a in ARTICLES:
   <h1>{html.escape(a['title'])}</h1>
   <p class="meta">Echipa Belvedere · {DATE_RO} · {a['read']} min de citit</p>
   <article class="content">
+{summary_html}
 {a['body']}
     <h2>Întrebări frecvente</h2>
     <div class="faq">{faq_html}</div>
@@ -327,9 +336,9 @@ cards = "\n".join(f"""<a class="card" href="/blog/{a['slug']}.html">
   <h2>{html.escape(a['title'])}</h2>
   <p>{html.escape(a['desc'])}</p>
   <span class="more">Citește articolul →</span>
-</a>""" for a in ARTICLES)
+</a>""" for a in VISIBLE)
 idx_ld = ld({"@context": "https://schema.org", "@type": "Blog", "name": "Blogul Belvedere", "url": U + "/blog/", "inLanguage": "ro-RO", "publisher": publisher,
-             "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": f"{U}/blog/{a['slug']}.html", "datePublished": DATE} for a in ARTICLES]})
+             "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": f"{U}/blog/{a['slug']}.html", "datePublished": DATE} for a in VISIBLE]})
 page = HEAD.format(title="Blog Belvedere: ghiduri pentru Târgu Neamț, cazare și gastronomie",
                    desc="Ghiduri și sfaturi pentru Târgu Neamț: ce să vizitezi, Cetatea Neamț, mănăstirile Agapia și Văratec, cazare și preparate moldovenești.",
                    url=U + "/blog/", img=IMG, ogtype="website", ld=idx_ld)
@@ -388,6 +397,9 @@ h1,h2,h3,.brand{font-family:Oswald,Impact,sans-serif;letter-spacing:.03em;text-t
 .content p{margin-bottom:14px}
 .content ul,.content ol{margin:0 0 16px 22px}
 .content li{margin-bottom:8px}
+.summary{background:#fff3f9;border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin:0 0 22px}
+.summary b{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:4px}
+.summary p{margin:0;font-size:.98rem}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 18px;margin-bottom:10px}
 .faq summary{cursor:pointer;font-weight:600;padding:14px 0}
 .faq details p{color:var(--muted);padding-bottom:14px;margin:0}

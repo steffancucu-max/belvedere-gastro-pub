@@ -1,0 +1,38 @@
+# Belvedere Gastro Pub & Pensiune
+
+> Restaurant (gastro pub) și pensiune de 3 stele în Târgu Neamț, județul Neamț, România. Adresă: Str. Mărășești nr. 215, 615200 Târgu Neamț. Telefon: +40 747 295 151. Email: rezervari@pensiuneabelvedere.ro.
+
+## Restaurant
+- Bucătărie românească și internațională, gastro pub cu bar, cocktailuri, terasă și opțiuni vegane.
+- Deschis zilnic, până la ora 22:00.
+- Meniul zilei: luni – vineri, 12:00 – 15:00. Joia burgerilor: în fiecare joi.
+- Specialitatea casei: șnițelul Belvedere. Recomandate: ciorba dreseală, ciorba de văcuță, coaste de porc, burger gourmet.
+- Comenzi și rezervări telefonic: 0747 295 151.
+
+## Pensiune
+- Camere duble Deluxe cu balcon și camere twin Deluxe, baie proprie, TV, aparat de cafea/ceai, Wi-Fi gratuit.
+- Mic dejun inclus. Parcare privată gratuită. Animale de companie acceptate fără taxe suplimentare.
+- Certificare EU Ecolabel. Check-in de la 15:00, check-out până la 12:00.
+- Nota 9,1/10 pe Booking.com (peste 530 de evaluări); 96% recomandări pe Facebook.
+
+## Distanțe
+- Cetatea Neamț: 3,6 km. Mănăstirea Agapia: 14 km. Mănăstirea Văratec: 15 km. Aeroportul Suceava: 69 km.
+
+## Pagini
+- [Pagina principală](https://belvedere-gastro-pub.vercel.app/)
+- [Blog](https://belvedere-gastro-pub.vercel.app/blog/)
+- [Ce să vizitezi în Târgu Neamț: ghid de weekend](https://belvedere-gastro-pub.vercel.app/blog/ce-sa-vizitezi-in-targu-neamt.html)
+- [Cum ajungi la Cetatea Neamț](https://belvedere-gastro-pub.vercel.app/blog/cum-ajungi-la-cetatea-neamt.html)
+- [Cazare lângă Cetatea Neamț](https://belvedere-gastro-pub.vercel.app/blog/cazare-langa-cetatea-neamt.html)
+- [Mănăstirile Agapia și Văratec: traseu de o zi](https://belvedere-gastro-pub.vercel.app/blog/manastirile-agapia-si-varatec.html)
+- [Ce să mănânci în Târgu Neamț](https://belvedere-gastro-pub.vercel.app/blog/ce-sa-mananci-in-targu-neamt.html)
+- [Restaurant în Târgu Neamț: unde mănânci bine și ce să comanzi](https://belvedere-gastro-pub.vercel.app/blog/restaurant-targu-neamt.html): Cauți un restaurant în Târgu Neamț? Ce oferă Belvedere Gastro Pub: bucătărie românească și internațională, meniul zilei, terasă și program zilnic până la 22:00.
+- [Cazare pet friendly în Târgu Neamț: vacanță cu câinele sau pisica](https://belvedere-gastro-pub.vercel.app/blog/cazare-pet-friendly-targu-neamt.html): Unde te cazezi în Târgu Neamț cu animalul de companie, ce să iei cu tine și ce plimbări poți face împreună în zonă.
+- [Casa memorială Ion Creangă din Humulești: ghid de vizită](https://belvedere-gastro-pub.vercel.app/blog/casa-ion-creanga-humulesti.html): Tot ce trebuie să știi despre Casa memorială Ion Creangă din Humulești, Târgu Neamț: ce vezi, cât durează vizita și cum o combini cu alte obiective.
+- [Mănăstirea Neamț: istorie, ce să vezi și sfaturi de vizită](https://belvedere-gastro-pub.vercel.app/blog/manastirea-neamt-ghid.html): Ghid pentru Mănăstirea Neamț, una dintre cele mai vechi mănăstiri din Moldova: ce să vezi, ce ținută se cere și cum o combini cu alte mănăstiri din zonă.
+- [Cum ajungi în Târgu Neamț din Iași, Suceava, Piatra Neamț și București](https://belvedere-gastro-pub.vercel.app/blog/cum-ajungi-in-targu-neamt.html): Variante de drum spre Târgu Neamț: cu mașina, trenul sau avionul (aeroportul Suceava), plus sfaturi pentru parcare și deplasarea în zonă.
+- [Drumeții lângă Târgu Neamț: Parcul Natural Vânători-Neamț, zimbrii și Sihla](https://belvedere-gastro-pub.vercel.app/blog/drumetii-langa-targu-neamt.html): Idei de drumeții și ieșiri în natură lângă Târgu Neamț: Parcul Natural Vânători-Neamț, rezervația de zimbri și Schitul Sihla.
+- [Weekend romantic în Târgu Neamț: idei pentru cupluri](https://belvedere-gastro-pub.vercel.app/blog/weekend-romantic-targu-neamt.html): Plan pentru un weekend în doi în Târgu Neamț: cazare cu balcon, cină liniștită, apus la cetate și plimbări prin natură.
+- [Ce faci în Târgu Neamț cu copiii: 6 idei de vizită](https://belvedere-gastro-pub.vercel.app/blog/targu-neamt-cu-copiii.html): Activități potrivite pentru familii în Târgu Neamț: Cetatea Neamț, Casa Ion Creangă, zimbrii de la Vânători-Neamț și unde mănânci cu cei mici.
+- [Mic dejun în Târgu Neamț: de ce merită să începi ziua la Belvedere](https://belvedere-gastro-pub.vercel.app/blog/mic-dejun-targu-neamt.html): Unde iei un mic dejun bun în Târgu Neamț înainte de Cetatea Neamț sau de mănăstiri: platou cu mezeluri afumate, clătite și cafea.
+- [Târgu Neamț în fiecare anotimp: când merită să vii](https://belvedere-gastro-pub.vercel.app/blog/targu-neamt-in-fiecare-anotimp.html): Cum arată Târgu Neamț primăvara, vara, toamna și iarna și ce poți face în fiecare anotimp: cetatea, mănăstirile, drumeții și mâncare caldă.

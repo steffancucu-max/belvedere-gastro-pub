@@ -37,6 +37,9 @@ h1,h2,h3,.brand{font-family:Oswald,Impact,sans-serif;letter-spacing:.03em;text-t
 .content p{margin-bottom:14px}
 .content ul,.content ol{margin:0 0 16px 22px}
 .content li{margin-bottom:8px}
+.summary{background:#fff3f9;border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin:0 0 22px}
+.summary b{display:block;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:4px}
+.summary p{margin:0;font-size:.98rem}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 18px;margin-bottom:10px}
 .faq summary{cursor:pointer;font-weight:600;padding:14px 0}
 .faq details p{color:var(--muted);padding-bottom:14px;margin:0}

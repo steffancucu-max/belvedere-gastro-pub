@@ -59,6 +59,110 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Unde se află restaurantul și pensiunea Belvedere în Târgu Neamț?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Suntem pe Str. Mărășești nr. 215, Târgu Neamț, jud. Neamț, la 3,6 km de Cetatea Neamț și la câteva minute cu mașina de centrul orașului. Avem parcare privată gratuită."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Care este programul restaurantului?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Restaurantul este deschis zilnic, până la ora 22:00. De luni până vineri, între 12:00 și 15:00, servim meniul zilei."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Cum pot face o rezervare la restaurant sau la pensiune?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ne poți suna la 0747 295 151, ne poți scrie pe WhatsApp sau pe email la rezervari@pensiuneabelvedere.ro. Pe site, butonul „Rezervă” completează mesajul pentru tine."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pot comanda mâncare de la Belvedere?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Da, comenzile se fac telefonic, la 0747 295 151. Te rugăm să ne suni pentru detalii despre preluare și livrare."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ce preparate recomandați?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Specialitatea casei este șnițelul Belvedere. Oaspeții apreciază și ciorba dreseală, o rețetă locală, ciorba de văcuță, coastele de porc și burgerul gourmet, mai ales joia, la Joia burgerilor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Aveți opțiuni vegane sau vegetariene?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Da, meniul include și opțiuni vegane, de exemplu humus. Spune-ne la comandă dacă ai preferințe sau alergii."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Este micul dejun inclus la cazare?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Da, oaspeții pensiunii au mic dejun inclus, variat și pregătit cu ingrediente proaspete."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ce tipuri de camere are pensiunea?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Avem camere duble Deluxe cu balcon și camere twin Deluxe, cu baie proprie, TV, aparat de cafea și ceai și Wi-Fi gratuit. Multe camere au vedere la grădină."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "La ce oră este check-in-ul și check-out-ul?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Check-in-ul începe la ora 15:00, iar check-out-ul este până la ora 12:00."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Acceptați animale de companie?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Da, animalele de companie sunt binevenite la pensiune, fără taxe suplimentare."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ce obiective turistice sunt aproape de Belvedere?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cetatea Neamț este la 3,6 km, iar Mănăstirea Agapia și Mănăstirea Văratec la 14–15 km. Tot în zonă sunt Casa memorială Ion Creangă din Humulești și Mănăstirea Neamț."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Cum vă evaluează clienții?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pensiunea are nota 9,1 din 10 pe Booking.com, din peste 530 de evaluări, iar pe Facebook 96% dintre clienți ne recomandă."
+   }
+  }
+ ]
+}
+</script>
 <!-- Fonts from Bunny Fonts (EU, no cookies, no IP logging) instead of Google Fonts, for GDPR -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=oswald:400,500,600|inter:400,500,600&display=swap" rel="stylesheet">
@@ -199,6 +303,16 @@
     .stat{padding:14px}.stat b{font-size:1.5rem}
     .about-card,.info{padding:28px}
   }
+  /* FAQ */
+  #intrebari{background:var(--paper-2)}
+  .faq-wrap{max-width:860px}
+  .faq-list{margin-top:36px;display:grid;gap:12px}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:0 22px}
+  .faq-item summary{cursor:pointer;list-style:none;padding:18px 32px 18px 0;font-weight:600;position:relative}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--accent);font-weight:400}
+  .faq-item[open] summary::after{content:"−"}
+  .faq-item p{padding:0 0 18px;color:var(--muted)}
   /* reviews list */
   .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0 32px;text-align:left}
   .rv{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
@@ -268,6 +382,7 @@
       <a href="#meniu">Meniu</a>
       <a href="#cazare">Cazare</a>
       <a href="#zona">Zona</a>
+      <a href="#intrebari">Întrebări</a>
       <a href="#contact">Contact</a>
       <a href="#rezervare" class="btn btn-accent" data-res>Rezervă</a>
     </nav>
@@ -396,6 +511,66 @@
       <div class="place reveal"><b>Centru</b><h3>Casa Ion Creangă</h3><p>Casa memorială din Humulești, satul copilăriei scriitorului.</p></div>
       <div class="place reveal"><b>~15 km</b><h3>Mănăstirea Neamț</h3><p>Una dintre cele mai vechi și importante mănăstiri din Moldova.</p></div>
       <div class="place reveal"><b>14–15 km</b><h3>Agapia &amp; Văratec</h3><p>Mănăstiri celebre, înconjurate de păduri și dealuri.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="intrebari">
+  <div class="wrap faq-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Întrebări frecvente</span>
+      <h2>Tot ce vrei să știi despre Belvedere</h2>
+      <p class="lead">Răspunsuri rapide despre restaurant, rezervări și cazare în Târgu Neamț.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Unde se află restaurantul și pensiunea Belvedere în Târgu Neamț?</summary>
+        <p>Suntem pe Str. Mărășești nr. 215, Târgu Neamț, jud. Neamț, la 3,6 km de Cetatea Neamț și la câteva minute cu mașina de centrul orașului. Avem parcare privată gratuită.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Care este programul restaurantului?</summary>
+        <p>Restaurantul este deschis zilnic, până la ora 22:00. De luni până vineri, între 12:00 și 15:00, servim meniul zilei.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Cum pot face o rezervare la restaurant sau la pensiune?</summary>
+        <p>Ne poți suna la 0747 295 151, ne poți scrie pe WhatsApp sau pe email la rezervari@pensiuneabelvedere.ro. Pe site, butonul „Rezervă” completează mesajul pentru tine.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Pot comanda mâncare de la Belvedere?</summary>
+        <p>Da, comenzile se fac telefonic, la 0747 295 151. Te rugăm să ne suni pentru detalii despre preluare și livrare.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Ce preparate recomandați?</summary>
+        <p>Specialitatea casei este șnițelul Belvedere. Oaspeții apreciază și ciorba dreseală, o rețetă locală, ciorba de văcuță, coastele de porc și burgerul gourmet, mai ales joia, la Joia burgerilor.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Aveți opțiuni vegane sau vegetariene?</summary>
+        <p>Da, meniul include și opțiuni vegane, de exemplu humus. Spune-ne la comandă dacă ai preferințe sau alergii.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Este micul dejun inclus la cazare?</summary>
+        <p>Da, oaspeții pensiunii au mic dejun inclus, variat și pregătit cu ingrediente proaspete.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Ce tipuri de camere are pensiunea?</summary>
+        <p>Avem camere duble Deluxe cu balcon și camere twin Deluxe, cu baie proprie, TV, aparat de cafea și ceai și Wi-Fi gratuit. Multe camere au vedere la grădină.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>La ce oră este check-in-ul și check-out-ul?</summary>
+        <p>Check-in-ul începe la ora 15:00, iar check-out-ul este până la ora 12:00.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Acceptați animale de companie?</summary>
+        <p>Da, animalele de companie sunt binevenite la pensiune, fără taxe suplimentare.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Ce obiective turistice sunt aproape de Belvedere?</summary>
+        <p>Cetatea Neamț este la 3,6 km, iar Mănăstirea Agapia și Mănăstirea Văratec la 14–15 km. Tot în zonă sunt Casa memorială Ion Creangă din Humulești și Mănăstirea Neamț.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Cum vă evaluează clienții?</summary>
+        <p>Pensiunea are nota 9,1 din 10 pe Booking.com, din peste 530 de evaluări, iar pe Facebook 96% dintre clienți ne recomandă.</p>
+      </details>
     </div>
   </div>
 </section>

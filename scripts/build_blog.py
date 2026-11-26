@@ -245,8 +245,10 @@ ARTICLES = [
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from articles_batch2 import ARTICLES2
+from articles_batch3 import ARTICLES3
+HIDDEN = ARTICLES2 + ARTICLES3
 VISIBLE = list(ARTICLES)          # listed on /blog/ (batch 1)
-ARTICLES = ARTICLES + ARTICLES2    # batch 2 is 'backend': only sitemap, llms.txt and links between batch-2 articles
+ARTICLES = ARTICLES + HIDDEN    # batch 2 is 'backend': only sitemap, llms.txt and links between batch-2 articles
 
 HEAD = """<!doctype html>
 <html lang="ro">
@@ -305,7 +307,7 @@ for a in ARTICLES:
     ]
     faq_html = "\n".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(ans)}</p></details>" for q, ans in a["faq"])
     summary_html = f'<div class="summary"><b>Pe scurt</b><p>{html.escape(a["summary"])}</p></div>' if a.get("summary") else ""
-    pool = VISIBLE if a in VISIBLE else ARTICLES2
+    pool = VISIBLE if a in VISIBLE else HIDDEN
     i = pool.index(a)
     others = [pool[(i + k) % len(pool)] for k in (1, 2, 3)]
     related = "\n".join(f'<a class="rel" href="/blog/{o["slug"]}.html"><span>{o["tag"]}</span>{html.escape(o["title"])}</a>' for o in others)
@@ -421,3 +423,33 @@ footer a{color:#c9c2b8}
 """)
 
 print("\n".join(a["slug"] for a in ARTICLES))
+
+# ---- sitemap.xml and llms.txt (generated) ----
+pages = ["", "politica-confidentialitate.html", "blog/"] + [f"blog/{a['slug']}.html" for a in ARTICLES]
+open(os.path.join(ROOT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{U}/{p}</loc><lastmod>{DATE}</lastmod></url>\n" for p in pages) + "</urlset>\n")
+art_lines = "\n".join(f"- [{a['title']}]({U}/blog/{a['slug']}.html): {a['desc']}" for a in ARTICLES)
+open(os.path.join(ROOT, "llms.txt"), "w").write(f"""# Belvedere Gastro Pub & Pensiune
+
+> Restaurant (gastro pub) și pensiune de 3 stele în Târgu Neamț, județul Neamț, România. Adresă: Str. Mărășești nr. 215, 615200 Târgu Neamț. Telefon: +40 747 295 151. Email: rezervari@pensiuneabelvedere.ro.
+
+## Restaurant
+- Bucătărie românească și internațională, gastro pub cu bar, cocktailuri, terasă și opțiuni vegane.
+- Deschis zilnic, până la ora 22:00.
+- Meniul zilei: luni – vineri, 12:00 – 15:00. Joia burgerilor: în fiecare joi.
+- Specialitatea casei: șnițelul Belvedere. Recomandate: ciorba dreseală, ciorba de văcuță, coaste de porc, burger gourmet.
+- Comenzi și rezervări telefonic: 0747 295 151.
+
+## Pensiune
+- Camere duble Deluxe cu balcon și camere twin Deluxe, baie proprie, TV, aparat de cafea/ceai, Wi-Fi gratuit.
+- Mic dejun inclus. Parcare privată gratuită. Animale de companie acceptate fără taxe suplimentare.
+- Certificare EU Ecolabel. Check-in de la 15:00, check-out până la 12:00.
+- Nota 9,1/10 pe Booking.com (peste 530 de evaluări); 96% recomandări pe Facebook.
+
+## Distanțe
+- Cetatea Neamț: 3,6 km. Mănăstirea Agapia: 14 km. Mănăstirea Văratec: 15 km. Aeroportul Suceava: 69 km.
+
+## Pagini
+- [Pagina principală]({U}/)
+- [Blog]({U}/blog/)
+{art_lines}
+""")
